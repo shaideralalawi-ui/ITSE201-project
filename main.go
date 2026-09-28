@@ -28,9 +28,9 @@ func main() {
 			http.NotFound(w, r)
 			return
 		}
-		http.ServeFile(w, r, "app/index.html")
+		http.ServeFile(w, r, "presentation/index.html")
 	})
-	log.Println("UOB Library is running at http://localhost:8081/app")
+	log.Println("UOB Library slides are running at http://localhost:8081/")
 	log.Fatal(http.ListenAndServe(":8081", mux))
 }
 
