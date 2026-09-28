@@ -1,17 +1,69 @@
-# UOB Library
+# UOB Library Management System
 
-A university library scenario presentation and student-facing app sample. The project contains a Go standard-library server and a static-site version for GitHub Pages.
+A university library project with an animated presentation of the library scenario and a student-facing catalog demo. The interface is built with HTML, CSS, and JavaScript, with a small Go server for local hosting.
 
-## Local preview
+## Features
 
-Run `preview.mjs` with Node.js, then open `http://localhost:8082/app` or `http://localhost:8082/slides`.
+- Browse a sample library catalog and search for books
+- View sample availability, reservations, and account information
+- Switch between light and dark themes
+- Explore an animated presentation explaining the library workflow
+- View separate student, librarian, and administrator roles
 
-## Publish with GitHub Pages
+> **Demo note:** This is a front-end sample. Sign-in, loans, reservations, notifications, fines, and reports are demonstrations only; data is not saved to a database.
 
-The `docs` folder is already arranged as a static site. After pushing the project to GitHub, open **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/docs`, then save. GitHub Pages will show the public site URL there. The app sample will be the home page, and the presentation will be at `/slides/`.
+## Run locally with Go
 
-The GitHub Pages version does not run Go. That is suitable for this sample because the catalog search, theme toggle, and demo buttons run in the browser. Borrowing, reservations, account authentication, and member records are not connected to a server or database.
+You need [Go 1.22 or later](https://go.dev/dl/).
 
-## Host a Go backend later
+1. Download or clone this repository.
+2. Open a terminal in the project folder.
+3. Run:
 
-For real accounts, saved loans, and persistent records, deploy the Go server to an app host and connect it to a database. GitHub can keep the source and trigger deployments, but it does not keep a Go server running itself. Render's free web services sleep after inactivity, so use a paid always-on service if the backend must stay awake continuously.
+   ```bash
+   go run .
+   ```
+
+4. Open the app at [http://localhost:8081/app](http://localhost:8081/app).
+5. Open the presentation at [http://localhost:8081/slides](http://localhost:8081/slides).
+
+On Windows, you can also double-click `start.bat`.
+
+## Preview with Node.js (optional)
+
+If Node.js is installed, run `node preview.mjs` from the project folder. Then open:
+
+- App: [http://localhost:8082/app](http://localhost:8082/app)
+- Slides: [http://localhost:8082/slides](http://localhost:8082/slides)
+
+## Publish the static site with GitHub Pages
+
+The `docs` folder contains the static version prepared for GitHub Pages. Push the project files to the `main` branch, then in the repository settings:
+
+1. Open **Settings → Pages**.
+2. Under **Build and deployment**, choose **Deploy from a branch**.
+3. Select branch **main** and folder **/docs**, then click **Save**.
+4. Wait for the Pages deployment to finish. GitHub will show the published URL in the Pages settings.
+
+For this repository, the expected site URL is <https://shaideralawi-ui.github.io/uob-library/>. The catalog is the home page, and the animated presentation is at `/slides/`. Leave **Custom domain** blank unless you own and have configured a domain.
+
+GitHub Pages serves the static demo only. It does not run the Go server or provide a database, so the demo features do not save user or circulation data.
+
+## Project structure
+
+```text
+app/                    Student-facing catalog demo
+  assets/               App styles and scripts
+presentation/           Animated library scenario slides
+  assets/               Presentation styles and scripts
+docs/                   Static files for GitHub Pages
+main.go                 Go web server
+preview.mjs             Optional Node.js preview server
+start.bat               Windows Go launch script
+```
+
+## Technology
+
+- HTML, CSS, and JavaScript
+- Go standard library (`net/http`) for local serving
+- GitHub Pages for the static hosted demo

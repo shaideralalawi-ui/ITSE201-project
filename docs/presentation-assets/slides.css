@@ -7,3 +7,38 @@ header .head-tools{display:flex;align-items:center;gap:20px} .theme-toggle{displ
 @media(max-width:700px){header .head-tools{gap:9px}.head-tools>span{font-size:7px}.theme-toggle{padding:6px 8px}.theme-toggle b{font-size:9px}}
 .app-link{color:var(--green);font-size:10px;font-weight:700;text-decoration:none;white-space:nowrap}.app-link b{padding-left:4px;color:#8ca475}@media(max-width:700px){.app-link{font-size:9px}}
 .app-link{white-space:nowrap}.head-tools{gap:14px}@media(max-width:700px){.head-tools>span{display:none}.head-tools{gap:7px}}
+
+/* Opening team slide */
+.team-slide{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:clamp(28px,6vw,92px)}
+.team-intro{position:relative;isolation:isolate;padding:12px 0}
+.team-intro:before{content:"";position:absolute;z-index:-1;width:clamp(220px,31vw,390px);aspect-ratio:1;border:1px solid var(--line);border-radius:50%;left:14%;top:50%;translate:0 -50%;box-shadow:0 0 0 24px color-mix(in srgb,var(--sage) 18%,transparent),0 0 0 48px color-mix(in srgb,var(--sage) 10%,transparent);animation:team-orbit 14s linear infinite}
+.team-intro:after{content:"✳";position:absolute;z-index:-1;right:3%;top:2%;color:#a9ba90;font-size:34px;animation:team-twinkle 3s ease-in-out infinite}
+.team-intro h1{font-size:clamp(54px,7vw,88px);line-height:.98;letter-spacing:-5px}
+.team-intro .sub{margin:19px 0 25px;font-size:clamp(14px,1.4vw,18px)}
+.team-seal{position:relative;width:96px;height:96px;margin:0 0 17px 4px;border:1px solid #a9ba90;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;color:var(--green);background:color-mix(in srgb,var(--bg) 84%,transparent);box-shadow:0 0 0 7px color-mix(in srgb,var(--sage) 42%,transparent);animation:seal-float 4s ease-in-out infinite}
+.team-seal span{font:800 25px Manrope;letter-spacing:-1px}.team-seal i{font-style:normal;font-size:7px;letter-spacing:1.2px}.team-seal b{position:absolute;right:-6px;top:4px;color:var(--coral);font-size:17px;animation:team-twinkle 2.8s ease-in-out infinite}
+.team-intro>small{letter-spacing:1.4px}
+.team-roster{border-top:1px solid var(--line);}
+.team-roster-head{display:flex;justify-content:space-between;align-items:center;padding:0 0 10px;color:#869487;font-size:9px;font-weight:700;letter-spacing:1.4px}
+.team-card{display:grid;grid-template-columns:38px 1fr auto;gap:13px;align-items:center;min-height:73px;border-top:1px solid var(--line);animation:team-card-in .65s both;transition:padding .25s,background .25s}
+.team-card:nth-of-type(1){animation-delay:.1s}.team-card:nth-of-type(2){animation-delay:.2s}.team-card:nth-of-type(3){animation-delay:.3s}.team-card:nth-of-type(4){animation-delay:.4s}
+.team-card:hover{padding-inline:8px;background:color-mix(in srgb,var(--sage) 28%,transparent)}
+.team-index{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:var(--sage);color:var(--green);font:700 11px Manrope}
+.team-card h3{margin:0 0 4px;font:700 clamp(13px,1.25vw,16px) Manrope;color:var(--ink)}
+.team-card small{font-size:8px;letter-spacing:1.1px;color:#91a095}
+.team-card>b{font:600 11px 'DM Sans',sans-serif;letter-spacing:.35px;color:var(--green);background:var(--sage);padding:8px 10px;border-radius:7px;white-space:nowrap}
+.team-note{margin:14px 0 0;color:var(--muted);font:italic 13px var(--serif)}
+@keyframes team-orbit{to{rotate:360deg}}
+@keyframes team-twinkle{50%{scale:1.18;opacity:.65;rotate:12deg}}
+@keyframes seal-float{50%{translate:0 -6px}}
+@keyframes team-card-in{from{opacity:0;translate:18px 0}to{opacity:1;translate:0 0}}
+@keyframes content-rise{from{opacity:0;translate:0 12px}to{opacity:1;translate:0 0}}
+.slide.active .eyebrow{animation:content-rise .5s .04s both}
+.slide.active h2{animation:content-rise .58s .08s both}
+.slide.active .rows article,.slide.active .journey article,.slide.active .stages article,.slide.active .flow article,.slide.active .list article,.slide.active .reports article,.slide.active .outcomes article{animation:content-rise .5s both}
+.slide.active .rows article:nth-child(2),.slide.active .journey article:nth-child(2),.slide.active .stages article:nth-child(2),.slide.active .flow article:nth-child(2),.slide.active .list article:nth-child(2),.slide.active .reports article:nth-child(2),.slide.active .outcomes article:nth-child(2){animation-delay:.08s}
+.slide.active .rows article:nth-child(3),.slide.active .journey article:nth-child(3),.slide.active .stages article:nth-child(3),.slide.active .flow article:nth-child(3),.slide.active .list article:nth-child(3),.slide.active .reports article:nth-child(3),.slide.active .outcomes article:nth-child(3){animation-delay:.16s}
+.slide.active .journey article:nth-child(4),.slide.active .flow article:nth-child(4),.slide.active .reports article:nth-child(4){animation-delay:.24s}
+.slide.active .journey article:nth-child(5){animation-delay:.32s}.slide.active .journey article:nth-child(6){animation-delay:.4s}
+@media(max-width:700px){.team-slide{grid-template-columns:1fr;gap:14px;align-content:center}.team-intro{padding:0}.team-intro:before,.team-intro:after,.team-seal{display:none}.team-intro h1{font-size:clamp(42px,12vw,58px);letter-spacing:-3px}.team-intro .eyebrow{font-size:8px;margin-bottom:8px}.team-intro .sub{font-size:12px;margin:8px 0 0}.team-intro>small{display:none}.team-roster{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}.team-roster-head{grid-column:1/-1;padding-bottom:7px}.team-card{grid-template-columns:25px 1fr;gap:7px;min-height:62px;padding:5px 0}.team-index{width:23px;height:23px;font-size:9px;border-radius:7px}.team-card h3{font-size:10px;line-height:1.2}.team-card small{font-size:7px}.team-card>b{grid-column:2;justify-self:start;font-size:9px;padding:5px 7px;margin-top:-2px}.team-note{grid-column:1/-1;font-size:11px;margin-top:8px}}
+@media(prefers-reduced-motion:reduce){.team-intro:before,.team-intro:after,.team-seal,.team-seal b,.team-card,.slide.active .eyebrow,.slide.active h2,.slide.active .rows article,.slide.active .journey article,.slide.active .stages article,.slide.active .flow article,.slide.active .list article,.slide.active .reports article,.slide.active .outcomes article{animation:none!important}}
