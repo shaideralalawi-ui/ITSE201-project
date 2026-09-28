@@ -1,0 +1,6 @@
+# Ignore local build and editor files
+*.exe
+*.log
+.vscode/
+.DS_Store
+Thumbs.db

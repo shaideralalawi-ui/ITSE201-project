@@ -1,15 +1,17 @@
 # UOB Library
 
-A coded library scenario presentation and student app sample. The Go source uses the standard library only. The pages include a shared, saved light/dark theme, searchable sample catalog, animated slides, and links between the presentation and app sample.
+A university library scenario presentation and student-facing app sample. The project contains a Go standard-library server and a static-site version for GitHub Pages.
 
-## App sample
+## Local preview
 
-Open http://localhost:8081/app.
+Run `preview.mjs` with Node.js, then open `http://localhost:8082/app` or `http://localhost:8082/slides`.
 
-## Presentation
+## Publish with GitHub Pages
 
-Open http://localhost:8081/slides. Use the arrow keys, Page Up/Page Down, Space, or the navigation buttons; swipe on touch screens.
+The `docs` folder is already arranged as a static site. After pushing the project to GitHub, open **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/docs`, then save. GitHub Pages will show the public site URL there. The app sample will be the home page, and the presentation will be at `/slides/`.
 
-## Run
+The GitHub Pages version does not run Go. That is suitable for this sample because the catalog search, theme toggle, and demo buttons run in the browser. Borrowing, reservations, account authentication, and member records are not connected to a server or database.
 
-Run `start.bat` from this folder to start the Go server. If the local Go toolchain is unavailable, `preview.mjs` serves the same pages with Node.js on port 8082.
+## Host a Go backend later
+
+For real accounts, saved loans, and persistent records, deploy the Go server to an app host and connect it to a database. GitHub can keep the source and trigger deployments, but it does not keep a Go server running itself. Render's free web services sleep after inactivity, so use a paid always-on service if the backend must stay awake continuously.
