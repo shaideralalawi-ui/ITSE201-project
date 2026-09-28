@@ -1,6 +1,5 @@
 # UOB Library Management System
 
-<<<<<<< HEAD
 A university library project with an animated presentation of the library scenario and a student-facing catalog demo. The interface is built with HTML, CSS, and JavaScript, with a small Go server for local hosting.
 
 ## Features
@@ -68,7 +67,3 @@ start.bat               Windows Go launch script
 - HTML, CSS, and JavaScript
 - Go standard library (`net/http`) for local serving
 - GitHub Pages for the static hosted demo
-=======
-A university library scenario presentation and student-facing app sample.
-
->>>>>>> 983b47c62e199c2c94f62014c5162ffc2b2336f9
